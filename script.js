@@ -3,47 +3,33 @@
 const container = document.querySelector('.container');
 const buttonIncrease = document.querySelector('.increase');
 const buttonDecrease = document.querySelector('.decrease');
+let getGridNumber = 16;
 
-function createGrid(gridInput){
-    for(let i = 0; i < gridInput; i++) {
+const createGrid = function(gridInput){
+        for(let i = 0; i < gridInput; i++) {
         const row = document.createElement('div');
         row.classList.add('row');
         container.appendChild(row);
-
+        
         for(let j=0; j < gridInput; j++) {
             const square = document.createElement("div")
             square.classList.add("square");
             square.classList.add('hover');
-        square.textContent = j;
-        row.appendChild(square);
-        
-    }
-    }
-
-    function gridChangeSize(e){
-    
-    let countBtnIncrease = gridInput;
-    let countBtnDecrease = gridInput;
-    if (e.target === buttonIncrease){
-        countBtnIncrease ++;
-        console.log(countBtnIncrease);
-        createGrid(gridInput + 1);
-        // return gridInput + 1;
-    }
-        else if (e.target === buttonDecrease) {
-        countBtnDecrease--;
-        console.log(countBtnIncrease);
-        return gridInput - 1;
-        // createGrid(countBtnDecrease)
+            square.textContent = j;
+            row.appendChild(square);
+            
         }
-    console.log(countBtnIncrease)
-    console.log(countBtnDecrease)
-    // countBtnIncrease = createGrid();
-    // createGrid();
-    }
+    } const changeGridUp = function(gridInput) { 
+            gridInput = getGridNumber++;
+            console.log(getGridNumber);
+            }
+    const changeGridDown = function(gridInput) { 
+                gridInput = getGridNumber--;
+                console.log(getGridNumber);
+                }
     checkChild();
-    buttonIncrease.addEventListener('click', gridChangeSize)
-    buttonDecrease.addEventListener('click', gridChangeSize)
+    const increase = buttonIncrease.addEventListener('click', changeGridUp)
+    const decrease = buttonDecrease.addEventListener('click', changeGridDown)
 }
 
 function checkChild() {    
@@ -66,4 +52,6 @@ function checkChild() {
     })
 }
 
+
 createGrid(16);
+
