@@ -51,7 +51,7 @@ function checkChild() {
     let count = 0;
     const countNum = document.querySelector(".count");
     childNodes.forEach((child) => {
-        child.addEventListener('mouseenter', function(e) {
+        child.addEventListener('mouseover', function(e) {
             // console.log(e.target);
             // e.stopPropagation();
             e.target.style.backgroundColor = "tomato";
