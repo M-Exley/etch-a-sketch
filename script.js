@@ -5,7 +5,7 @@ const buttonIncrease = document.querySelector('.increase');
 const buttonDecrease = document.querySelector('.decrease');
 let getGridNumber = 16;
 
-const createGrid = function(gridInput){
+function createGrid(gridInput){
         for(let i = 0; i < gridInput; i++) {
         const row = document.createElement('div');
         row.classList.add('row');
@@ -17,20 +17,20 @@ const createGrid = function(gridInput){
             square.classList.add('hover');
             square.textContent = j;
             row.appendChild(square);
-            
-        }
-    } const changeGridUp = function(gridInput) { 
-            gridInput = getGridNumber++;
-            console.log(getGridNumber);
-            }
-    const changeGridDown = function(gridInput) { 
-                gridInput = getGridNumber--;
-                console.log(getGridNumber);
-                }
-    checkChild();
-    const increase = buttonIncrease.addEventListener('click', changeGridUp)
-    const decrease = buttonDecrease.addEventListener('click', changeGridDown)
+        }}
+        checkChild();
+    // } return getGridNumber = gridInput;
 }
+
+function changeGrid () {
+    buttonIncrease.addEventListener('click', function(){ 
+        // console.log(getGridNumber);
+        // return getGridNumber++;
+        createGrid(getGridNumber);
+    })
+
+}
+// buttonDecrease.addEventListener('click', createGrid)
 
 function checkChild() {    
     const childNodes = document.querySelectorAll("div.hover");
@@ -53,5 +53,6 @@ function checkChild() {
 }
 
 
+changeGrid();
 createGrid(16);
 
